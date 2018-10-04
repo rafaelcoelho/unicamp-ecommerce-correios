@@ -13,7 +13,7 @@ formatter.feature({
   "keyword": "Funcionalidade"
 });
 formatter.before({
-  "duration": 3931891888,
+  "duration": 2289100808,
   "status": "passed"
 });
 formatter.scenario({
@@ -68,29 +68,29 @@ formatter.match({
   "location": "BuscaEnderecoSteps.eu_possuo_um_CEP_valido(String,String\u003e)"
 });
 formatter.result({
-  "duration": 1073151274,
+  "duration": 562004292,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
 });
 formatter.result({
-  "duration": 908552148,
+  "duration": 462386037,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.o_resultado_deve_ser_o_endereco(String,String\u003e\u003e)"
 });
 formatter.result({
-  "duration": 292458257,
+  "duration": 112556701,
   "status": "passed"
 });
 formatter.after({
-  "duration": 3872142,
+  "duration": 4558302,
   "status": "passed"
 });
 formatter.before({
-  "duration": 19261559,
+  "duration": 27716207,
   "status": "passed"
 });
 formatter.scenario({
@@ -129,14 +129,14 @@ formatter.match({
   "location": "BuscaEnderecoSteps.um_CEP_nao_existente(String,String\u003e)"
 });
 formatter.result({
-  "duration": 609477,
+  "duration": 624817,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
 });
 formatter.result({
-  "duration": 26253058,
+  "duration": 18502612,
   "status": "passed"
 });
 formatter.match({
@@ -149,15 +149,15 @@ formatter.match({
   "location": "BuscaEnderecoSteps.o_retorno_deve_conter_um_valor_de_erro_igual_a(String)"
 });
 formatter.result({
-  "duration": 3419952,
+  "duration": 2081498,
   "status": "passed"
 });
 formatter.after({
-  "duration": 2994766,
+  "duration": 9584271,
   "status": "passed"
 });
 formatter.before({
-  "duration": 34865989,
+  "duration": 66426251,
   "status": "passed"
 });
 formatter.scenario({
@@ -201,29 +201,29 @@ formatter.match({
   "location": "BuscaEnderecoSteps.um_CEP_invalido(String,String\u003e)"
 });
 formatter.result({
-  "duration": 1752822,
+  "duration": 508974,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
 });
 formatter.result({
-  "duration": 16646988,
+  "duration": 17615296,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.uma_excecao_deve_ser_lancada_com_a_mensagem_de_erro(String)"
 });
 formatter.result({
-  "duration": 318997,
+  "duration": 741031,
   "status": "passed"
 });
 formatter.after({
-  "duration": 2257423,
+  "duration": 20419159,
   "status": "passed"
 });
 formatter.before({
-  "duration": 27536912,
+  "duration": 19384386,
   "status": "passed"
 });
 formatter.scenario({
@@ -272,36 +272,36 @@ formatter.match({
   "location": "BuscaEnderecoSteps.eu_possuo_um_CEP_valido(String,String\u003e)"
 });
 formatter.result({
-  "duration": 4389272,
+  "duration": 406133,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.o_servico_via_cep_nao_esta_respondendo()"
 });
 formatter.result({
-  "duration": 372199,
+  "duration": 277343,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
 });
 formatter.result({
-  "duration": 5036207243,
+  "duration": 5017215649,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.uma_excecao_deve_ser_lancada_com_a_mensagem_de_erro(String)"
 });
 formatter.result({
-  "duration": 215554,
+  "duration": 203785,
   "status": "passed"
 });
 formatter.after({
-  "duration": 15118212,
+  "duration": 6321831,
   "status": "passed"
 });
 formatter.before({
-  "duration": 45919157,
+  "duration": 22974125,
   "status": "passed"
 });
 formatter.scenario({
@@ -356,25 +356,25 @@ formatter.match({
   "location": "BuscaEnderecoSteps.um_CEP_existente_test(String,String\u003e)"
 });
 formatter.result({
-  "duration": 619347,
+  "duration": 455923,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
 });
 formatter.result({
-  "duration": 75563308,
+  "duration": 28127430,
   "status": "passed"
 });
 formatter.match({
   "location": "BuscaEnderecoSteps.o_resultado_deve_ser_o_endereco(String,String\u003e\u003e)"
 });
 formatter.result({
-  "duration": 269533,
+  "duration": 215865,
   "status": "passed"
 });
 formatter.after({
-  "duration": 3700166,
+  "duration": 11632954,
   "status": "passed"
 });
 });
