@@ -4,7 +4,6 @@ package br.unicamp.ecommerce.frete;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
 import java.util.Map;
@@ -48,7 +47,7 @@ public class CalculaFrete {
 		wireMockServer = new WireMockServer(9876);
 		wireMockServer.start();
 		MockitoAnnotations.initMocks(this);
-		Mockito.when(configuration.getBuscarEnderecoUrl()).thenReturn("http://localhost:9876/ws");
+		Mockito.when(configuration.getConsultaPrecoPrazoUrl()).thenReturn("http://localhost:9876/calculador/CalcPrecoPrazo");
 		endereco = null;
 		cep = null;
 		throwable = null;
@@ -61,16 +60,15 @@ public class CalculaFrete {
 	
 	@Given("^an order$")
 	public void an_order() throws Throwable {
-		wireMockServer.stubFor(get(urlMatching("/ws/"+ cep + ".*"))
+		wireMockServer.stubFor(get(urlMatching("/calculador/CalPrecoPrazo" + cep + ".*"))
 				.willReturn(aResponse().withStatus(200)
 				.withHeader("Content-Type", "text/xlm")
 				.withBodyFile(".xml")));
 	}
 
-	@When("^I set the (\\d+)$")
-	public void i_set_the(String cep) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@When("^I set the CEP")
+	public void i_set_the(Map<String, String> map) throws Throwable {
+		throwable = catchThrowable(() -> this.endereco = buscaEnderecoService.buscar(map.get("cep")));
 	}
 
 	@When("^I select calculate shipping$")
@@ -81,12 +79,6 @@ public class CalculaFrete {
 
 	@Then("^I get price for shipping (\\d+)$")
 	public void i_get_price_for_shipping(int price) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
-	@When("^I set the <invalid_cep>$")
-	public void i_set_the_invalid_cep(Map<String, String> map) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		throw new PendingException();
 	}
