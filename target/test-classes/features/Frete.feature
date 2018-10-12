@@ -52,7 +52,7 @@ Feature: Shipping
   @tag3
   Scenario Outline: Get due date to deliver at valid address
     Given an order
-    When I set the CEP <cep>
+    When I set the <cep>
     And I select calculate shipping
     Then I get the maximum date to deliver <date>
 
@@ -61,17 +61,6 @@ Feature: Shipping
       | 12216510 | 09/20/2018 |
       | 37540000 | 10/20/2018 |
       | 37660000 | 10/12/2018 |
-
-  @tag4
-  Scenario: Get due date to deliver at invalid address
-    Given an order
-    When I set the CEP
-      | cep | 99999000 |
-    And I select calculate shipping
-    Then an exception shall be throw with following error message:
-      """
-      Invalid address
-      """
 
   @tag4
   Scenario: Get due date to deliver at invalid address
