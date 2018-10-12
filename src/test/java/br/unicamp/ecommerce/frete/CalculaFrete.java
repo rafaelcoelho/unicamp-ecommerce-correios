@@ -66,6 +66,18 @@ public class CalculaFrete {
 				.withBodyFile(".xml")));
 	}
 
+	@When("^I set the (\\d+)$")
+	public void i_set_the(int arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^an exception shall be throw with following error message:$")
+	public void an_exception_shall_be_throw_with_following_error_message(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+	
 	@When("^I set the CEP")
 	public void i_set_the(Map<String, String> map) throws Throwable {
 		throwable = catchThrowable(() -> this.endereco = buscaEnderecoService.buscar(map.get("cep")));
