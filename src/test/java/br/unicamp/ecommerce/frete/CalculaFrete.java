@@ -47,7 +47,7 @@ public class CalculaFrete {
 		wireMockServer = new WireMockServer(9876);
 		wireMockServer.start();
 		MockitoAnnotations.initMocks(this);
-		Mockito.when(configuration.getConsultaPrecoPrazoUrl()).thenReturn("http://localhost:9876/calculador/CalcPrecoPrazo");
+		Mockito.when(configuration.getConsultaPrecoPrazoUrl()).thenReturn("http://localhost:9876/calculador/PrecoPrazo");
 		endereco = null;
 		cep = null;
 		throwable = null;
