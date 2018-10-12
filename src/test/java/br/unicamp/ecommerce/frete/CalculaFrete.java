@@ -58,37 +58,26 @@ public class CalculaFrete {
 		wireMockServer.stop();
 	}
 	
-	@Given("^an order$")
-	public void an_order() throws Throwable {
-		wireMockServer.stubFor(get(urlMatching("/calculador/CalPrecoPrazo" + cep + ".*"))
+	@Given("^an order with <\"([^\"]*)\">$")
+	public void an_order_with(String cep) throws Throwable {
+		wireMockServer.stubFor(get(urlMatching("/calculador/PrecoPrazo/" + cep + ".*"))
 				.willReturn(aResponse().withStatus(200)
 				.withHeader("Content-Type", "text/xlm")
-				.withBodyFile(".xml")));
+				.withBodyFile(cep + "_PrecoPrazo.xml")));
 	}
-
-	@When("^I set the (\\d+)$")
-	public void i_set_the(int arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	
+	@When("^I select calculate shipping$")
+	public void i_select_calculate_shipping() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
 	}
-
+	
 	@Then("^an exception shall be throw with following error message:$")
 	public void an_exception_shall_be_throw_with_following_error_message(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
 	}
 	
-	@When("^I set the CEP")
-	public void i_set_the(Map<String, String> map) throws Throwable {
-		throwable = catchThrowable(() -> this.endereco = buscaEnderecoService.buscar(map.get("cep")));
-	}
-
-	@When("^I select calculate shipping$")
-	public void i_select_calculate_shipping() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
 	@Then("^I get price for shipping (\\d+)$")
 	public void i_get_price_for_shipping(int price) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
@@ -106,4 +95,14 @@ public class CalculaFrete {
 		// Write code here that turns the phrase above into concrete actions
 		throw new PendingException();
 	}
+	
+	@Given("^an order with CEP$")
+	public void an_order_with_CEP(Map<String, String> value) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+	    // E,K,V must be a scalar (String, Integer, Date, enum etc)
+	    throw new PendingException();
+	}
+	
 }

@@ -24,9 +24,8 @@ Feature: Shipping
 
   @tag1
   Scenario Outline: Get shipping value for valid address
-    Given an order
-    When I set the <cep>
-    And I select calculate shipping
+    Given an order with <"cep">
+    When I select calculate shipping
     Then I get price for shipping <price>
 
     Examples: 
@@ -37,9 +36,8 @@ Feature: Shipping
 
   @tag2
   Scenario Outline: Get shipping value for invalid address
-    Given an order
-    When I set the <cep>
-    And I select calculate shipping
+    Given an order with <"cep">
+    When I select calculate shipping
     Then an exception shall be throw with following error message:
       """
       Invalid address
@@ -51,9 +49,8 @@ Feature: Shipping
 
   @tag3
   Scenario Outline: Get due date to deliver at valid address
-    Given an order
-    When I set the <cep>
-    And I select calculate shipping
+    Given an order with <"cep">
+    When I select calculate shipping
     Then I get the maximum date to deliver <date>
 
     Examples: 
@@ -64,8 +61,7 @@ Feature: Shipping
 
   @tag4
   Scenario: Get due date to deliver at invalid address
-    Given an order
-    When I set the CEP
+    Given an order with CEP
       | cep | 99999000 |
     And I select calculate shipping
     Then an exception shall be throw with following error message:
@@ -75,10 +71,9 @@ Feature: Shipping
 
   @tag5
   Scenario: Service to get price and date unavailable (timeout)
-    Given an order
-    When I set the CEP
+    Given an order with CEP
       | cep | 1221610 |
-    And I select calculate shipping
+    When I select calculate shipping
     Then an exception shall be throw with following error message:
       """
       Remote service unavailable
@@ -86,10 +81,9 @@ Feature: Shipping
 
   @tag6
   Scenario: Get response from server unformatted
-    Given an order
-    When I set the CEP
+    Given an order with CEP
       | cep | 1221610 |
-    And I select calculate shipping
+    When I select calculate shipping
     Then an exception shall be throw with following error message:
       """
       Could not get answer form remote server

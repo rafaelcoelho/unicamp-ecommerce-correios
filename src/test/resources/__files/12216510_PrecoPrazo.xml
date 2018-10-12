@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlcep>
+	<Codigo>09898767</Codigo>
+	<Valor>800</Valor>
+	<PrazoEntrega>10</PrazoEntrega>
+	<ValorAvisoRecebimento>8</ValorAvisoRecebimento>
+	<ValorValorDeclarado>12</ValorValorDeclarado>
+	<EntregaDomiciliar>Yes</EntregaDomiciliar>
+	<EntregaSabado>No</EntregaSabado>
+	<Erro>No</Erro>
+	<MsgErro>No errors for while</MsgErro>
+</xmlcep>
