@@ -46,10 +46,12 @@ public class BuscaEnderecoSteps {
 
 	@Before
 	public void setUp() {
-		wireMockServer = new WireMockServer(9877);
+		int port = 9999;
+		wireMockServer = new WireMockServer(9999);
+		wireMockServer.stop();
 		wireMockServer.start();
 		MockitoAnnotations.initMocks(this);
-		Mockito.when(configuration.getBuscarEnderecoUrl()).thenReturn("http://localhost:9877/ws");
+		Mockito.when(configuration.getBuscarEnderecoUrl()).thenReturn("http://localhost:" + port + "/ws");
 		endereco = null;
 		cep = null;
 		throwable = null;

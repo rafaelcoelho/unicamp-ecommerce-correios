@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlStatusEncomenda>
+	<tipo>BDE</tipo>
+	<status>01</status>
+	<descricao>Objeto entregue ao destinatario</descricao>
+</xmlStatusEncomenda>

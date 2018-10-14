@@ -1,37 +1,31 @@
 Feature: Check order status
   As a user of the e-commerce system
   I would like to see an order status from the tracking code
-  To know where my products are
+  To know where my product is
   
   Background:
-  	Given I am logged on System
-  	And I did one shop
-
-  Scenario Outline: Query for a valid tracking code
-    And a valid tracking code
-    When I set a tracking code <tracking_code> in the status query
-    Then the status result is:
-   
-		Examples:
-   		|	tracking_code		|	status	|	message	|
-      | 'SQ458226057BR' |		|		|
-      |	'RA132678652BR'	|		|		|
-
-  Scenario Outline: Query an non-existent tracking code
-    And a tracking code:
-    When I enter the code <track_code> in the status query
-    Then there may be an error value of "true" with the <message>
-    
-    Examples:
-    | track_code 			|	status	|	message	| 
-    |	'AB99999999BR' 	| 9				|		|
-
-  Scenario: Query for a invalid tracking code
-    And an invalid tracking code:
-      | cep | 1234567890000 |
-    When eu informo o CEP na busca de endereço
-    Then uma exceção deve ser lançada com a mensagem de erro:
+  	Given I am logged on the System
+  	And I already bought an item
+          
+  Scenario: Search for a invalid tracking code
+  	Given I would like to see where my product is located at
+  		But my Tracking Code is not valid
       """
-      O CEP informado é invalido
+      AB99999999BR
+      """  		
+    When I request for the delivery status
+    Then I can see the message
       """
-   
+      Codigo de rastreio invalido
+      """
+  
+  Scenario Outline: Search for valid delivery statuses
+  	Given The tracking code is <tracking_code>
+  	When I request for the delivery status
+  	Then I should see the <status> and the <description> of my package 
+  
+  Examples:
+    | tracking_code   | status | description 										   |
+    | "SQ458226057BR" | "01"   | "Objeto entregue ao destinatario" |
+    | "SQ458226058BR" | "09"   | "Objeto saiu para entrega"        |
+    | "SQ458226059BR" | "03"   | "Objeto nao localizado"           |

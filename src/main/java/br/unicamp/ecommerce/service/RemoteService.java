@@ -1,5 +1,6 @@
 package br.unicamp.ecommerce.service;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
@@ -53,7 +54,9 @@ public <T> T getAndParseXml(String endpointUrl, Class<T> xmlClass) throws Except
       if(((HttpURLConnection) connection).getResponseCode() == 400) {
     	throw new Exception("O CEP informado é invalido");  
       }
-      return builder.parse(connection.getInputStream());
+      InputStream input = connection.getInputStream();
+      Document d = builder.parse(input);
+      return d;
     } catch (ParserConfigurationException | SAXException e) {
       throw new Exception(e);
     } catch (SocketTimeoutException e) {
