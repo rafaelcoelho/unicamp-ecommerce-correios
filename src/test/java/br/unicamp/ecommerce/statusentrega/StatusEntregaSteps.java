@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.http.Fault;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
@@ -95,6 +96,17 @@ public class StatusEntregaSteps {
 						.withBodyFile("resultado-pesquisa-StatusEntrega_" + codigo + ".xml")));
 	}
 	
+	@Given("^I have any valid tracking code$")
+	public void i_have_any_valid_tracking_code() throws Throwable {
+		codigo = "SQ458226057BR";
+	}
+
+	@Given("^the endpoint is down$")
+	public void the_endpoint_is_down() throws Throwable {
+		server.stubFor(get(urlMatching("/sro_bin/sroii_xml.eventos/" + codigo + ".*"))
+				.willReturn(aResponse().withStatus(200).withFault(Fault.EMPTY_RESPONSE).withHeader("Content-Type", "text/xml")
+						.withBodyFile("resultado-pesquisa-StatusEntrega_" + codigo + ".xml")));
+	}
 	@When("^I request for the delivery status$")
 	public void i_request_for_the_delivery_status() throws Throwable {
 		ThrowingCallable callable = () -> this.status = service.encontrar(codigo);
@@ -114,5 +126,10 @@ public class StatusEntregaSteps {
 		assertThat(this.status.getDescricao()).isEqualTo(arg2);
 		assertThat(throwable).isNull();
 
+	}
+
+	@Then("^I can see an exception trhown$")
+	public void i_can_see_an_exception_trhown() throws Throwable {
+		assertThat(throwable).isNotNull();
 	}
 }
