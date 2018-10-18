@@ -25,20 +25,18 @@ Feature: Shipping
   @tag1
   Scenario Outline: Get shipping value for valid address
     Given an order
-    When I set the <cep>
+    When I set the CEP <cep>
     And I select calculate shipping
     Then I get price for shipping <price>
 
     Examples: 
-      | cep      | price |
-      | 12216510 |    10 |
-      | 37540000 |    40 |
-      | 37660000 |    87 |
+      | cep        | price |
+      | "12216510" | "11"  |
 
   @tag2
   Scenario Outline: Get shipping value for invalid address
     Given an order
-    When I set the <cep>
+    When I set the CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
@@ -46,51 +44,58 @@ Feature: Shipping
       """
 
     Examples: 
-      | cep      |
-      | 99999000 |
+      | cep        |
+      | "99999000" |
 
   @tag3
   Scenario Outline: Get due date to deliver at valid address
     Given an order
-    When I set the <cep>
+    When I set the CEP <cep>
     And I select calculate shipping
     Then I get the maximum date to deliver <date>
 
     Examples: 
-      | cep      | date       |
-      | 12216510 | 09/20/2018 |
-      | 37540000 | 10/20/2018 |
-      | 37660000 | 10/12/2018 |
+      | cep        | date         |
+      | "12216510" | 20 |
 
   @tag4
-  Scenario: Get due date to deliver at invalid address
+  Scenario Outline: Get due date to deliver at invalid address
     Given an order
-    When I set the CEP
-      | cep | 99999000 |
+    When I set the CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
       Invalid address
       """
 
+    Examples: 
+      | cep        |
+      | "99999000" |
+
   @tag5
-  Scenario: Service to get price and date unavailable (timeout)
+  Scenario Outline: Service to get price and date unavailable (timeout)
     Given an order
-    When I set the CEP
-      | cep | 1221610 |
+    When I set the CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
       Remote service unavailable
       """
 
+    Examples: 
+      | cep        |
+      | "99999000" |
+
   @tag6
-  Scenario: Get response from server unformatted
+  Scenario Outline: Get response from server unformatted
     Given an order
-    When I set the CEP
-      | cep | 1221610 |
+    When I set the CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
-      Could not get answer form remote server
+      Could not get answer from remote server
       """
+
+    Examples: 
+      | cep        |
+      | "99999000" |

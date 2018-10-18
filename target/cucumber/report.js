@@ -1,380 +1,991 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/BuscaEndereco.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/Frete.feature");
 formatter.feature({
   "comments": [
     {
       "line": 1,
-      "value": "# language: pt"
+      "value": "#Author: your.email@your.domain.com"
+    },
+    {
+      "line": 2,
+      "value": "#Keywords Summary :"
+    },
+    {
+      "line": 3,
+      "value": "#Feature: List of scenarios."
+    },
+    {
+      "line": 4,
+      "value": "#Scenario: Business rule through list of steps with arguments."
+    },
+    {
+      "line": 5,
+      "value": "#Given: Some precondition step"
+    },
+    {
+      "line": 6,
+      "value": "#When: Some key actions"
+    },
+    {
+      "line": 7,
+      "value": "#Then: To observe outcomes or validation"
+    },
+    {
+      "line": 8,
+      "value": "#And,But: To enumerate more Given,When,Then steps"
+    },
+    {
+      "line": 9,
+      "value": "#Scenario Outline: List of steps for data-driven as an Examples and \u003cplaceholder\u003e"
+    },
+    {
+      "line": 10,
+      "value": "#Examples: Container for s table"
+    },
+    {
+      "line": 11,
+      "value": "#Background: List of steps run before each of the scenarios"
+    },
+    {
+      "line": 12,
+      "value": "#\"\"\" (Doc Strings)"
+    },
+    {
+      "line": 13,
+      "value": "#| (Data Tables)"
+    },
+    {
+      "line": 14,
+      "value": "#@ (Tags/Labels):To group Scenarios"
+    },
+    {
+      "line": 15,
+      "value": "#\u003c\u003e (placeholder)"
+    },
+    {
+      "line": 16,
+      "value": "#\"\""
+    },
+    {
+      "line": 17,
+      "value": "## (Comments)"
+    },
+    {
+      "line": 18,
+      "value": "#Sample Feature Definition Template"
     }
   ],
-  "line": 2,
-  "name": "Buscar Endereço",
-  "description": "Como um usuário do sistema Ecommerce\nDesejo consultar um endereço a partir do CEP\nPara que eu possa usar o endereço para fazer um pedido",
-  "id": "buscar-endereço",
-  "keyword": "Funcionalidade"
+  "line": 20,
+  "name": "Shipping",
+  "description": "As a user\nI want to calculate the value and the max time to deliver\nSo that I get the order value and estimated date to deliver.",
+  "id": "shipping",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@tag"
+    }
+  ]
 });
-formatter.before({
-  "duration": 2289100808,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 7,
-  "name": "Consultar um endereço valido",
+formatter.scenarioOutline({
+  "line": 26,
+  "name": "Get shipping value for valid address",
   "description": "",
-  "id": "buscar-endereço;consultar-um-endereço-valido",
-  "type": "scenario",
-  "keyword": "Cenário"
+  "id": "shipping;get-shipping-value-for-valid-address",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 25,
+      "name": "@tag1"
+    }
+  ]
 });
 formatter.step({
-  "line": 8,
-  "name": "um CEP válido:",
+  "line": 27,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 28,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 29,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 30,
+  "name": "I get price for shipping \u003cprice\u003e",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 32,
+  "name": "",
+  "description": "",
+  "id": "shipping;get-shipping-value-for-valid-address;",
   "rows": [
     {
       "cells": [
         "cep",
-        "13083970"
+        "price"
       ],
-      "line": 9
-    }
-  ],
-  "keyword": "Dado "
-});
-formatter.step({
-  "line": 10,
-  "name": "eu informo o CEP na busca de endereço",
-  "keyword": "Quando "
-});
-formatter.step({
-  "line": 11,
-  "name": "o resultado deve ser o endereço:",
-  "rows": [
-    {
-      "cells": [
-        "Logradouro",
-        "Cidade"
-      ],
-      "line": 12
+      "line": 33,
+      "id": "shipping;get-shipping-value-for-valid-address;;1"
     },
     {
       "cells": [
-        "Rua Carlos Gomes",
-        "Campinas"
+        "\"12216510\"",
+        "\"11\""
       ],
-      "line": 13
+      "line": 34,
+      "id": "shipping;get-shipping-value-for-valid-address;;2"
     }
   ],
-  "keyword": "Então "
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_possuo_um_CEP_valido(String,String\u003e)"
-});
-formatter.result({
-  "duration": 562004292,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
-});
-formatter.result({
-  "duration": 462386037,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.o_resultado_deve_ser_o_endereco(String,String\u003e\u003e)"
-});
-formatter.result({
-  "duration": 112556701,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 4558302,
-  "status": "passed"
+  "keyword": "Examples"
 });
 formatter.before({
-  "duration": 27716207,
+  "duration": 1521397881,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 15,
-  "name": "Consultar um endereço com CEP não existente",
+  "line": 34,
+  "name": "Get shipping value for valid address",
   "description": "",
-  "id": "buscar-endereço;consultar-um-endereço-com-cep-não-existente",
+  "id": "shipping;get-shipping-value-for-valid-address;;2",
   "type": "scenario",
-  "keyword": "Cenário"
-});
-formatter.step({
-  "line": 16,
-  "name": "um CEP não existente:",
-  "rows": [
+  "keyword": "Scenario Outline",
+  "tags": [
     {
-      "cells": [
-        "cep",
-        "99999999"
-      ],
-      "line": 17
+      "line": 19,
+      "name": "@tag"
+    },
+    {
+      "line": 25,
+      "name": "@tag1"
     }
+  ]
+});
+formatter.step({
+  "line": 27,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 28,
+  "name": "I set the CEP \"12216510\"",
+  "matchedColumns": [
+    0
   ],
-  "keyword": "Dado "
+  "keyword": "When "
 });
 formatter.step({
-  "line": 18,
-  "name": "eu informo o CEP na busca de endereço",
-  "keyword": "Quando "
+  "line": 29,
+  "name": "I select calculate shipping",
+  "keyword": "And "
 });
 formatter.step({
-  "line": 19,
-  "name": "o retorno deve conter um valor de erro igual a \"true\"",
-  "keyword": "Então "
+  "line": 30,
+  "name": "I get price for shipping \"11\"",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "Then "
 });
 formatter.match({
-  "location": "BuscaEnderecoSteps.um_CEP_nao_existente(String,String\u003e)"
+  "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 624817,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
-});
-formatter.result({
-  "duration": 18502612,
+  "duration": 100804887,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "true",
-      "offset": 48
+      "val": "12216510",
+      "offset": 15
     }
   ],
-  "location": "BuscaEnderecoSteps.o_retorno_deve_conter_um_valor_de_erro_igual_a(String)"
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 2081498,
+  "duration": 42657202,
   "status": "passed"
 });
-formatter.after({
-  "duration": 9584271,
+formatter.match({
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
+});
+formatter.result({
+  "duration": 156054361,
   "status": "passed"
 });
-formatter.before({
-  "duration": 66426251,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 21,
-  "name": "Consultar um endereço com CEP invalido.",
-  "description": "",
-  "id": "buscar-endereço;consultar-um-endereço-com-cep-invalido.",
-  "type": "scenario",
-  "keyword": "Cenário"
-});
-formatter.step({
-  "line": 22,
-  "name": "um CEP inválido:",
-  "rows": [
+formatter.match({
+  "arguments": [
     {
-      "cells": [
-        "cep",
-        "1234567890"
-      ],
-      "line": 23
+      "val": "11",
+      "offset": 26
     }
   ],
-  "keyword": "Dado "
-});
-formatter.step({
-  "line": 24,
-  "name": "eu informo o CEP na busca de endereço",
-  "keyword": "Quando "
-});
-formatter.step({
-  "line": 25,
-  "name": "uma exceção deve ser lançada com a mensagem de erro:",
-  "keyword": "Então ",
-  "doc_string": {
-    "content_type": "",
-    "line": 26,
-    "value": "O CEP informado é invalido"
-  }
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.um_CEP_invalido(String,String\u003e)"
+  "location": "CalculaFreteSteps.i_get_price_for_shipping(String)"
 });
 formatter.result({
-  "duration": 508974,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
-});
-formatter.result({
-  "duration": 17615296,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.uma_excecao_deve_ser_lancada_com_a_mensagem_de_erro(String)"
-});
-formatter.result({
-  "duration": 741031,
+  "duration": 27306563,
   "status": "passed"
 });
 formatter.after({
-  "duration": 20419159,
+  "duration": 86900146,
   "status": "passed"
 });
-formatter.before({
-  "duration": 19384386,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 30,
-  "name": "Serviço ViaCep não responde",
+formatter.scenarioOutline({
+  "line": 37,
+  "name": "Get shipping value for invalid address",
   "description": "",
-  "id": "buscar-endereço;serviço-viacep-não-responde",
-  "type": "scenario",
-  "keyword": "Cenário"
-});
-formatter.step({
-  "line": 31,
-  "name": "um CEP válido:",
-  "rows": [
+  "id": "shipping;get-shipping-value-for-invalid-address",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
     {
-      "cells": [
-        "cep",
-        "13083970"
-      ],
-      "line": 32
+      "line": 36,
+      "name": "@tag2"
     }
-  ],
-  "keyword": "Dado "
+  ]
 });
 formatter.step({
-  "line": 33,
-  "name": "o serviço ViaCep não esta respondendo",
-  "keyword": "E "
+  "line": 38,
+  "name": "an order",
+  "keyword": "Given "
 });
 formatter.step({
-  "line": 34,
-  "name": "eu informo o CEP na busca de endereço",
-  "keyword": "Quando "
+  "line": 39,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
 });
 formatter.step({
-  "line": 35,
-  "name": "uma exceção deve ser lançada com a mensagem de erro:",
-  "keyword": "Então ",
-  "doc_string": {
-    "content_type": "",
-    "line": 36,
-    "value": "Serviço indisponivel"
-  }
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_possuo_um_CEP_valido(String,String\u003e)"
-});
-formatter.result({
-  "duration": 406133,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.o_servico_via_cep_nao_esta_respondendo()"
-});
-formatter.result({
-  "duration": 277343,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
-});
-formatter.result({
-  "duration": 5017215649,
-  "status": "passed"
-});
-formatter.match({
-  "location": "BuscaEnderecoSteps.uma_excecao_deve_ser_lancada_com_a_mensagem_de_erro(String)"
-});
-formatter.result({
-  "duration": 203785,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 6321831,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 22974125,
-  "status": "passed"
-});
-formatter.scenario({
   "line": 40,
-  "name": "Consultar um endereço com CEP existente",
-  "description": "",
-  "id": "buscar-endereço;consultar-um-endereço-com-cep-existente",
-  "type": "scenario",
-  "keyword": "Cenário"
+  "name": "I select calculate shipping",
+  "keyword": "And "
 });
 formatter.step({
   "line": 41,
-  "name": "um CEP existente test:",
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 42,
+    "value": "Invalid address"
+  }
+});
+formatter.examples({
+  "line": 46,
+  "name": "",
+  "description": "",
+  "id": "shipping;get-shipping-value-for-invalid-address;",
+  "rows": [
+    {
+      "cells": [
+        "cep"
+      ],
+      "line": 47,
+      "id": "shipping;get-shipping-value-for-invalid-address;;1"
+    },
+    {
+      "cells": [
+        "\"99999000\""
+      ],
+      "line": 48,
+      "id": "shipping;get-shipping-value-for-invalid-address;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 16105022,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 48,
+  "name": "Get shipping value for invalid address",
+  "description": "",
+  "id": "shipping;get-shipping-value-for-invalid-address;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@tag"
+    },
+    {
+      "line": 36,
+      "name": "@tag2"
+    }
+  ]
+});
+formatter.step({
+  "line": 38,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 39,
+  "name": "I set the CEP \"99999000\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 40,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 41,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 42,
+    "value": "Invalid address"
+  }
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_order()"
+});
+formatter.result({
+  "duration": 61155,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "99999000",
+      "offset": 15
+    }
+  ],
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+});
+formatter.result({
+  "duration": 454597,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
+});
+formatter.result({
+  "duration": 51079848,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
+});
+formatter.result({
+  "duration": 99216,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 96020295,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 51,
+  "name": "Get due date to deliver at valid address",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-valid-address",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 50,
+      "name": "@tag3"
+    }
+  ]
+});
+formatter.step({
+  "line": 52,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 53,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 54,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 55,
+  "name": "I get the maximum date to deliver \u003cdate\u003e",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 57,
+  "name": "",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-valid-address;",
   "rows": [
     {
       "cells": [
         "cep",
-        "12216510"
+        "date"
       ],
-      "line": 42
-    }
-  ],
-  "keyword": "Dado "
-});
-formatter.step({
-  "line": 43,
-  "name": "eu informo o CEP na busca de endereço",
-  "keyword": "Quando "
-});
-formatter.step({
-  "line": 44,
-  "name": "o resultado deve ser o endereço:",
-  "rows": [
-    {
-      "cells": [
-        "Logradouro",
-        "Cidade"
-      ],
-      "line": 45
+      "line": 58,
+      "id": "shipping;get-due-date-to-deliver-at-valid-address;;1"
     },
     {
       "cells": [
-        "Rua Roma",
-        "São José dos Campos"
+        "\"12216510\"",
+        "20"
       ],
-      "line": 46
+      "line": 59,
+      "id": "shipping;get-due-date-to-deliver-at-valid-address;;2"
     }
   ],
-  "keyword": "Então "
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 4973615,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 59,
+  "name": "Get due date to deliver at valid address",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-valid-address;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@tag"
+    },
+    {
+      "line": 50,
+      "name": "@tag3"
+    }
+  ]
+});
+formatter.step({
+  "line": 52,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 53,
+  "name": "I set the CEP \"12216510\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 54,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 55,
+  "name": "I get the maximum date to deliver 20",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "Then "
 });
 formatter.match({
-  "location": "BuscaEnderecoSteps.um_CEP_existente_test(String,String\u003e)"
+  "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 455923,
+  "duration": 20100,
   "status": "passed"
 });
 formatter.match({
-  "location": "BuscaEnderecoSteps.eu_informo_o_CEP_na_busca_de_endereco()"
+  "arguments": [
+    {
+      "val": "12216510",
+      "offset": 15
+    }
+  ],
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 28127430,
+  "duration": 301068,
   "status": "passed"
 });
 formatter.match({
-  "location": "BuscaEnderecoSteps.o_resultado_deve_ser_o_endereco(String,String\u003e\u003e)"
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 215865,
+  "duration": 9588430,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "20",
+      "offset": 34
+    }
+  ],
+  "location": "CalculaFreteSteps.i_get_the_maximum_date_to_deliver(int)"
+});
+formatter.result({
+  "duration": 4361216,
   "status": "passed"
 });
 formatter.after({
-  "duration": 11632954,
+  "duration": 103496969,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 62,
+  "name": "Get due date to deliver at invalid address",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-invalid-address",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 61,
+      "name": "@tag4"
+    }
+  ]
+});
+formatter.step({
+  "line": 63,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 64,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 65,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 66,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 67,
+    "value": "Invalid address"
+  }
+});
+formatter.examples({
+  "line": 71,
+  "name": "",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-invalid-address;",
+  "rows": [
+    {
+      "cells": [
+        "cep"
+      ],
+      "line": 72,
+      "id": "shipping;get-due-date-to-deliver-at-invalid-address;;1"
+    },
+    {
+      "cells": [
+        "\"99999000\""
+      ],
+      "line": 73,
+      "id": "shipping;get-due-date-to-deliver-at-invalid-address;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 23135653,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 73,
+  "name": "Get due date to deliver at invalid address",
+  "description": "",
+  "id": "shipping;get-due-date-to-deliver-at-invalid-address;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@tag"
+    },
+    {
+      "line": 61,
+      "name": "@tag4"
+    }
+  ]
+});
+formatter.step({
+  "line": 63,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 64,
+  "name": "I set the CEP \"99999000\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 65,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 66,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 67,
+    "value": "Invalid address"
+  }
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_order()"
+});
+formatter.result({
+  "duration": 62865,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "99999000",
+      "offset": 15
+    }
+  ],
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+});
+formatter.result({
+  "duration": 474696,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
+});
+formatter.result({
+  "duration": 13163189,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
+});
+formatter.result({
+  "duration": 111190,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 1511757,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 76,
+  "name": "Service to get price and date unavailable (timeout)",
+  "description": "",
+  "id": "shipping;service-to-get-price-and-date-unavailable-(timeout)",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 75,
+      "name": "@tag5"
+    }
+  ]
+});
+formatter.step({
+  "line": 77,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 78,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 79,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 80,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 81,
+    "value": "Remote service unavailable"
+  }
+});
+formatter.examples({
+  "line": 85,
+  "name": "",
+  "description": "",
+  "id": "shipping;service-to-get-price-and-date-unavailable-(timeout);",
+  "rows": [
+    {
+      "cells": [
+        "cep"
+      ],
+      "line": 86,
+      "id": "shipping;service-to-get-price-and-date-unavailable-(timeout);;1"
+    },
+    {
+      "cells": [
+        "\"99999000\""
+      ],
+      "line": 87,
+      "id": "shipping;service-to-get-price-and-date-unavailable-(timeout);;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 8748518,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 87,
+  "name": "Service to get price and date unavailable (timeout)",
+  "description": "",
+  "id": "shipping;service-to-get-price-and-date-unavailable-(timeout);;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@tag"
+    },
+    {
+      "line": 75,
+      "name": "@tag5"
+    }
+  ]
+});
+formatter.step({
+  "line": 77,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 78,
+  "name": "I set the CEP \"99999000\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 79,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 80,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 81,
+    "value": "Remote service unavailable"
+  }
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_order()"
+});
+formatter.result({
+  "duration": 65859,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "99999000",
+      "offset": 15
+    }
+  ],
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+});
+formatter.result({
+  "duration": 243335,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
+});
+formatter.result({
+  "duration": 11244306,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
+});
+formatter.result({
+  "duration": 82965,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 93517236,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 90,
+  "name": "Get response from server unformatted",
+  "description": "",
+  "id": "shipping;get-response-from-server-unformatted",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 89,
+      "name": "@tag6"
+    }
+  ]
+});
+formatter.step({
+  "line": 91,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 92,
+  "name": "I set the CEP \u003ccep\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 93,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 94,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 95,
+    "value": "Could not get answer from remote server"
+  }
+});
+formatter.examples({
+  "line": 99,
+  "name": "",
+  "description": "",
+  "id": "shipping;get-response-from-server-unformatted;",
+  "rows": [
+    {
+      "cells": [
+        "cep"
+      ],
+      "line": 100,
+      "id": "shipping;get-response-from-server-unformatted;;1"
+    },
+    {
+      "cells": [
+        "\"99999000\""
+      ],
+      "line": 101,
+      "id": "shipping;get-response-from-server-unformatted;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 15368602,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 101,
+  "name": "Get response from server unformatted",
+  "description": "",
+  "id": "shipping;get-response-from-server-unformatted;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 89,
+      "name": "@tag6"
+    },
+    {
+      "line": 19,
+      "name": "@tag"
+    }
+  ]
+});
+formatter.step({
+  "line": 91,
+  "name": "an order",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 92,
+  "name": "I set the CEP \"99999000\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 93,
+  "name": "I select calculate shipping",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 94,
+  "name": "an exception shall be throw with following error message:",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 95,
+    "value": "Could not get answer from remote server"
+  }
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_order()"
+});
+formatter.result({
+  "duration": 50463,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "99999000",
+      "offset": 15
+    }
+  ],
+  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+});
+formatter.result({
+  "duration": 565786,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.i_select_calculate_shipping()"
+});
+formatter.result({
+  "duration": 11107457,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
+});
+formatter.result({
+  "duration": 120170,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 102842658,
   "status": "passed"
 });
 });

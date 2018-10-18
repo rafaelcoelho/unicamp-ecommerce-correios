@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlprecoprazo>
+	<Codigo>009888</Codigo>
+	<Valor>11</Valor>
+	<PrazoEntrega>20</PrazoEntrega>
+	<ValorMaoPropria>12</ValorMaoPropria>
+	<ValorAvisoRecebimento>3</ValorAvisoRecebimento>
+	<ValorValorDeclarado>23</ValorValorDeclarado>
+	<EntregaDomiciliar>Yes</EntregaDomiciliar>
+	<EntregaSabado>No</EntregaSabado>
+	<Erro>No</Erro>
+	<MsgErro>No</MsgErro>
+</xmlprecoprazo>
