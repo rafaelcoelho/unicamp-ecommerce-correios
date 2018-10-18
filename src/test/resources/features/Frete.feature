@@ -74,6 +74,7 @@ Feature: Shipping
   Scenario Outline: Get response from server unformatted
     Given an order
     When I set the CEP <cep>
+    And an unformat response shall be done
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """

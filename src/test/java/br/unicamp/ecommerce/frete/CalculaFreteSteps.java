@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.http.Fault;
 
 import br.unicamp.ecommerce.Configuracao;
 import br.unicamp.ecommerce.model.PrecoPrazo;
@@ -103,6 +104,12 @@ public class CalculaFreteSteps
     {
         wireMockServer.stubFor(get(urlMatching("/calculador/PrecoPrazo/.*")).willReturn(aResponse().withStatus(200)
                 .withFixedDelay(6000).withBodyFile("resultado-pesquisa-preco-prazo_out.xml")));
+    }
+
+    @And ("^an unformat response shall be done$")
+    public void an_unformat_response_shall_be_done() throws Throwable
+    {
+        wireMockServer.stubFor(get(urlMatching("/calculador/PrecoPrazo/.*")).willReturn(aResponse().withFault(Fault.MALFORMED_RESPONSE_CHUNK)));
     }
 
     @Then ("^I get price for shipping \"([^\"]*)\"$")
