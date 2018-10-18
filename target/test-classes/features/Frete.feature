@@ -1,21 +1,4 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
+
 @tag
 Feature: Shipping
   As a user
@@ -36,11 +19,11 @@ Feature: Shipping
   @tag2
   Scenario Outline: Get shipping value for invalid address
     Given an order
-    When I set the CEP <cep>
+    When I set the invalid CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
-      Invalid address
+      O CEP informado é invalido
       """
 
     Examples: 
@@ -56,16 +39,16 @@ Feature: Shipping
 
     Examples: 
       | cep        | date         |
-      | "12216510" | 20 |
+      | "12216510" | 20 					|
 
   @tag4
   Scenario Outline: Get due date to deliver at invalid address
     Given an order
-    When I set the CEP <cep>
+    When I set the invalid CEP <cep>
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
-      Invalid address
+      O CEP informado é invalido
       """
 
     Examples: 
@@ -76,15 +59,16 @@ Feature: Shipping
   Scenario Outline: Service to get price and date unavailable (timeout)
     Given an order
     When I set the CEP <cep>
+    And the service to calculate is unavailable
     And I select calculate shipping
     Then an exception shall be throw with following error message:
       """
-      Remote service unavailable
+      Serviço indisponivel
       """
 
     Examples: 
       | cep        |
-      | "99999000" |
+      | "12216510" |
 
   @tag6
   Scenario Outline: Get response from server unformatted
@@ -98,4 +82,4 @@ Feature: Shipping
 
     Examples: 
       | cep        |
-      | "99999000" |
+      | "12216510" |

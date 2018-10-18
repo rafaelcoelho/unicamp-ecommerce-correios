@@ -146,7 +146,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 1521397881,
+  "duration": 1269605904,
   "status": "passed"
 });
 formatter.scenario({
@@ -197,7 +197,7 @@ formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 100804887,
+  "duration": 90547179,
   "status": "passed"
 });
 formatter.match({
@@ -210,14 +210,14 @@ formatter.match({
   "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 42657202,
+  "duration": 51012278,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 156054361,
+  "duration": 160684572,
   "status": "passed"
 });
 formatter.match({
@@ -230,11 +230,11 @@ formatter.match({
   "location": "CalculaFreteSteps.i_get_price_for_shipping(String)"
 });
 formatter.result({
-  "duration": 27306563,
+  "duration": 24422464,
   "status": "passed"
 });
 formatter.after({
-  "duration": 86900146,
+  "duration": 100688138,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -258,7 +258,7 @@ formatter.step({
 });
 formatter.step({
   "line": 39,
-  "name": "I set the CEP \u003ccep\u003e",
+  "name": "I set the invalid CEP \u003ccep\u003e",
   "keyword": "When "
 });
 formatter.step({
@@ -300,7 +300,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 16105022,
+  "duration": 12893340,
   "status": "passed"
 });
 formatter.scenario({
@@ -328,7 +328,7 @@ formatter.step({
 });
 formatter.step({
   "line": 39,
-  "name": "I set the CEP \"99999000\"",
+  "name": "I set the invalid CEP \"99999000\"",
   "matchedColumns": [
     0
   ],
@@ -353,38 +353,39 @@ formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 61155,
+  "duration": 29080,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
       "val": "99999000",
-      "offset": 15
+      "offset": 23
     }
   ],
-  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+  "location": "CalculaFreteSteps.i_set_the_invalid_CEP(String)"
 });
 formatter.result({
-  "duration": 454597,
+  "duration": 251033,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 51079848,
+  "duration": 7813239,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
 });
 formatter.result({
-  "duration": 99216,
-  "status": "passed"
+  "duration": 10592134,
+  "error_message": "java.lang.AssertionError: \r\nExpecting message:\r\n \u003c\"Invalid address\"\u003e\r\nbut was:\r\n \u003c\"O CEP informado é invalido\"\u003e\r\n\tat br.unicamp.ecommerce.frete.CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(CalculaFreteSteps.java:92)\r\n\tat ✽.Then an exception shall be throw with following error message:(features/Frete.feature:41)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 96020295,
+  "duration": 95799625,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -447,7 +448,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 4973615,
+  "duration": 12437033,
   "status": "passed"
 });
 formatter.scenario({
@@ -498,7 +499,7 @@ formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 20100,
+  "duration": 47470,
   "status": "passed"
 });
 formatter.match({
@@ -511,14 +512,14 @@ formatter.match({
   "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 301068,
+  "duration": 380185,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 9588430,
+  "duration": 16628042,
   "status": "passed"
 });
 formatter.match({
@@ -531,11 +532,11 @@ formatter.match({
   "location": "CalculaFreteSteps.i_get_the_maximum_date_to_deliver(int)"
 });
 formatter.result({
-  "duration": 4361216,
+  "duration": 5721155,
   "status": "passed"
 });
 formatter.after({
-  "duration": 103496969,
+  "duration": 1016105,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -559,7 +560,7 @@ formatter.step({
 });
 formatter.step({
   "line": 64,
-  "name": "I set the CEP \u003ccep\u003e",
+  "name": "I set the invalid CEP \u003ccep\u003e",
   "keyword": "When "
 });
 formatter.step({
@@ -574,7 +575,7 @@ formatter.step({
   "doc_string": {
     "content_type": "",
     "line": 67,
-    "value": "Invalid address"
+    "value": "O CEP informado é invalido"
   }
 });
 formatter.examples({
@@ -601,7 +602,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 23135653,
+  "duration": 9212522,
   "status": "passed"
 });
 formatter.scenario({
@@ -629,7 +630,7 @@ formatter.step({
 });
 formatter.step({
   "line": 64,
-  "name": "I set the CEP \"99999000\"",
+  "name": "I set the invalid CEP \"99999000\"",
   "matchedColumns": [
     0
   ],
@@ -647,45 +648,45 @@ formatter.step({
   "doc_string": {
     "content_type": "",
     "line": 67,
-    "value": "Invalid address"
+    "value": "O CEP informado é invalido"
   }
 });
 formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 62865,
+  "duration": 31219,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
       "val": "99999000",
-      "offset": 15
+      "offset": 23
     }
   ],
-  "location": "CalculaFreteSteps.i_set_the_CEP(String)"
+  "location": "CalculaFreteSteps.i_set_the_invalid_CEP(String)"
 });
 formatter.result({
-  "duration": 474696,
+  "duration": 163364,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 13163189,
+  "duration": 4627216,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
 });
 formatter.result({
-  "duration": 111190,
+  "duration": 143264,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1511757,
+  "duration": 644047,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -751,7 +752,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 8748518,
+  "duration": 11346944,
   "status": "passed"
 });
 formatter.scenario({
@@ -804,7 +805,7 @@ formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 65859,
+  "duration": 453313,
   "status": "passed"
 });
 formatter.match({
@@ -817,25 +818,26 @@ formatter.match({
   "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 243335,
+  "duration": 260869,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 11244306,
+  "duration": 12132116,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
 });
 formatter.result({
-  "duration": 82965,
-  "status": "passed"
+  "duration": 488380,
+  "error_message": "java.lang.AssertionError: \r\nExpecting message:\r\n \u003c\"Remote service unavailable\"\u003e\r\nbut was:\r\n \u003c\"Server returned HTTP response code: 500 for URL: http://localhost:9876/calculador/PrecoPrazo/99999000\"\u003e\r\n\tat br.unicamp.ecommerce.frete.CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(CalculaFreteSteps.java:92)\r\n\tat ✽.Then an exception shall be throw with following error message:(features/Frete.feature:80)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 93517236,
+  "duration": 885672,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -901,7 +903,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 15368602,
+  "duration": 6139828,
   "status": "passed"
 });
 formatter.scenario({
@@ -954,7 +956,7 @@ formatter.match({
   "location": "CalculaFreteSteps.an_order()"
 });
 formatter.result({
-  "duration": 50463,
+  "duration": 26514,
   "status": "passed"
 });
 formatter.match({
@@ -967,25 +969,26 @@ formatter.match({
   "location": "CalculaFreteSteps.i_set_the_CEP(String)"
 });
 formatter.result({
-  "duration": 565786,
+  "duration": 270705,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.i_select_calculate_shipping()"
 });
 formatter.result({
-  "duration": 11107457,
+  "duration": 7005400,
   "status": "passed"
 });
 formatter.match({
   "location": "CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(String)"
 });
 formatter.result({
-  "duration": 120170,
-  "status": "passed"
+  "duration": 1538271,
+  "error_message": "java.lang.AssertionError: \r\nExpecting message:\r\n \u003c\"Could not get answer from remote server\"\u003e\r\nbut was:\r\n \u003c\"Server returned HTTP response code: 500 for URL: http://localhost:9876/calculador/PrecoPrazo/99999000\"\u003e\r\n\tat br.unicamp.ecommerce.frete.CalculaFreteSteps.an_exception_shall_be_throw_with_following_error_message(CalculaFreteSteps.java:92)\r\n\tat ✽.Then an exception shall be throw with following error message:(features/Frete.feature:94)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 102842658,
+  "duration": 102679295,
   "status": "passed"
 });
 });

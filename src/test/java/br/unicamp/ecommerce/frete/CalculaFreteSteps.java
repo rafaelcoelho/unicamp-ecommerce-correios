@@ -66,6 +66,16 @@ public class CalculaFreteSteps
         assertTrue(true);
     }
 
+    @When ("^I set the invalid CEP \"([^\"]*)\"$")
+    public void i_set_the_invalid_CEP(String arg1) throws Throwable
+    {
+        this.cep = arg1;
+        wireMockServer.stubFor(get(urlMatching("/calculador/PrecoPrazo/" + cep + ".*"))
+                .willReturn(aResponse().withStatus(400)
+                        .withHeader("Content-Type", "text/xlm")
+                        .withBodyFile("resultado-pesquisa-preco-prazo_invalid_address" + ".xml")));
+    }
+
     @When ("^I set the CEP \"([^\"]*)\"$")
     public void i_set_the_CEP(String arg1) throws Throwable
     {
@@ -77,27 +87,28 @@ public class CalculaFreteSteps
     }
 
     @Then ("^an exception shall be throw with following error message:$")
-    public void an_exception_shall_be_throw_with_following_error_message(String arg1) throws Throwable
+    public void an_exception_shall_be_throw_with_following_error_message(String error) throws Throwable
     {
-        assertTrue(true);
+        assertThat(throwable).hasMessage(error);
     }
 
     @And ("^I select calculate shipping$")
     public void i_select_calculate_shipping() throws Throwable
     {
-        throwable = catchThrowable(() -> this.price = service.calcular(cep));
+        this.throwable = catchThrowable(() -> this.price = service.calcular(cep));
+    }
+
+    @And ("^the service to calculate is unavailable$")
+    public void the_service_to_calculate_is_unavailable() throws Throwable
+    {
+        wireMockServer.stubFor(get(urlMatching("/calculador/PrecoPrazo/.*")).willReturn(aResponse().withStatus(200)
+                .withFixedDelay(6000).withBodyFile("resultado-pesquisa-preco-prazo_out.xml")));
     }
 
     @Then ("^I get price for shipping \"([^\"]*)\"$")
     public void i_get_price_for_shipping(String price) throws Throwable
     {
         assertThat(this.price.getValor()).isEqualTo(price);
-    }
-
-    @Then ("^and exception shall be throw with following error message:$")
-    public void and_exception_shall_be_throw_with_following_error_message(String error) throws Throwable
-    {
-        assertTrue(true);
     }
 
     @Then ("^I get the maximum date to deliver (\\d+)$")
